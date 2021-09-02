@@ -1,0 +1,17 @@
+{
+    "server": {
+        "HTTP": {
+            "PORT": 8090
+        }
+    },
+    "database": {
+        "credentials": {
+            "connectionString": "mongodb://localhost/telegram-bot"
+        },
+        "options": {
+            "useNewUrlParser": true,
+            "useUnifiedTopology": true,
+            "ignoreUndefined": true
+        }
+    }
+}

@@ -1,0 +1,13 @@
+node_modules/**/*
+
+note.txt
+
+*.log
+*.png
+*.jpg
+
+.idea
+
+*-dump
+test-backup
+*-migration-backup

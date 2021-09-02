@@ -1,0 +1,10 @@
+{
+    "server": {
+        "HTTP": {
+            "PORT": 8070
+        }
+    },
+    "db": {
+        "connectString": ""
+    }
+}
