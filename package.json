@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.4",
+    "node-telegram-bot-api": "^0.54.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {

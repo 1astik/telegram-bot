@@ -13,5 +13,8 @@
             "useUnifiedTopology": true,
             "ignoreUndefined": true
         }
+    },
+    "telegram": {
+        "token": "1938454988:AAFm2JHpNcLXgVNdPApWz-1DiXhMLZ5tU1Y"
     }
 }

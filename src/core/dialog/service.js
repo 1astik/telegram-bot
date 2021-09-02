@@ -15,7 +15,38 @@ async function initDataTest(dialogs) {
 }
 
 
+async function getDialogs(params) {
+    if (params.status === 'active'){
+        return dialogRepository.findDialogs({active: true})
+    }
+
+    return dialogRepository.findDialogs({active: false})
+}
+
+
+async function getDialog(params) {
+    return dialogRepository.findDialogById(params.id, params.countMessages)
+}
+
+async function changeStatusDialog(params){
+   if (params.status === 'false'){
+       params.status = false
+   } else {
+       params.status = true
+   }
+    return dialogRepository.changeStatusDialog(params.id, params.status)
+}
+
+async function addMessage(params) {
+    return dialogRepository.addNewMessage(params.id, params.text, params.authorId)
+}
+
+
 
 module.exports = {
-    initDataTest
+    initDataTest,
+    getDialogs,
+    getDialog,
+    changeStatusDialog,
+    addMessage
 }
