@@ -33,6 +33,9 @@ const start = async () => {
 
                 return  bot.sendMessage(chatId, 'Меню', menu);
             } else if (lastDialog){
+                if (msg?.reply_to_message?.text?.length < 10){
+                    return void 0
+                }
                 return  dialogService.addMessage({id: lastDialog, text, authorId: msg.chat.username})
             }
         } catch (e) {
@@ -61,6 +64,12 @@ const start = async () => {
         }
 
     })
+
+
+    bot.on('reply_to_message', (msg) => {
+        console.log(msg)
+    })
+
 
 }
 
