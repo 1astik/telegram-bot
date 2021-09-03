@@ -57,16 +57,16 @@ const start = async () => {
             const data = JSON.parse(msg.data)
 
             if (msg.message.text === 'Меню') {
-                await onMenu(data.info, chatId)
+                return onMenu(data.info, chatId)
             }
             if (msg.message.text === 'Диалоги') {
-                await onDialog(data.info, chatId)
+                return onDialog(data.info, chatId)
             }
             if (msg.message.text === 'Опции' && data.countMessages) {
-                await onDialog(data.id, chatId, data.countMessages)
+                return onDialog(data.id, chatId, data.countMessages)
             } else if (data.status) {
                 await dialogService.changeStatusDialog({id: data.id, status: data.status})
-                await onDialog(data.id, chatId)
+                return onDialog(data.id, chatId)
             }
         } catch (e) {
             logger.error(`Error in BOT(callback_query): ${e.message}`)
