@@ -6,7 +6,7 @@
     },
     "database": {
       "credentials": {
-        "connectionString": "mongodb://localhost/telegram-bot"
+        "connectionString": "mongodb+srv://admin:pH6Q5E7ZjDbHmgk@cluster0.ugnuu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
       },
       "options": {
         "useNewUrlParser": true,

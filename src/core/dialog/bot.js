@@ -39,7 +39,9 @@ const start = async () => {
                 if (msg?.reply_to_message?.text?.length < 10) {
                     return void 0
                 }
-                return dialogService.addMessage({id: lastDialog, text, authorId: msg.chat.username})
+                const authorId = msg.chat.username ? msg.chat.username : msg.chat.first_name + ' ' + msg.chat.last_name
+
+                return dialogService.addMessage({id: lastDialog, text, authorId})
             }
         } catch (e) {
             logger.error(`Error in BOT(message): ${e.message}`)
