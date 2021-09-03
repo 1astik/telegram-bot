@@ -1,5 +1,18 @@
 const {Schema, model} = require('mongoose')
 
+/**
+ * @typedef DialogSchema
+ * @type {Object}
+ * @property {import('mongoose').ObjectId} _id
+ * @property {String} nameDialog
+ * @property {String} authorId
+ * @property {Boolean} active
+ * @property {Array} messages
+ * @property {Date} createdAt
+ *
+ * @typedef {DialogSchema} DialogModel
+ */
+
 
 const DialogSchema = new Schema(
     {

@@ -28,8 +28,9 @@ class Config {
                 }
             },
 
-            TEST_DB_CONNECTION: connectionString => config.database.credentials.connectionString = connectionString,
-            TEST_HTTP_PORT: port => config.server.HTTP.PORT = parseInt(port),
+            DB_CONNECTION: connectionString => config.database.credentials.connectionString = connectionString,
+            HTTP_PORT: port => config.server.HTTP.PORT = parseInt(port),
+            TELEGRAM_API_KEY: token => config.telegram.token = token,
         }
 
 

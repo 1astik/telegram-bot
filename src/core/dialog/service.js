@@ -2,7 +2,10 @@ const dialogRepository = require('./repository')
 const logger = require('../../utils/winston')
 // const {EntityExists, Forbidden} = require('utils/error')
 
-
+/**
+ * @param {DialogModel[]} dialogs
+ * @returns {Promise<void>}
+ */
 async function initDataTest(dialogs) {
 
     let count = await dialogRepository.countDialogs()
@@ -15,6 +18,10 @@ async function initDataTest(dialogs) {
 }
 
 
+/**
+ * @param {{status: String}} params
+ * @returns {Promise<DialogModel[]>}
+ */
 async function getDialogs(params) {
     if (params.status === 'active'){
         return dialogRepository.findDialogs({active: true})
@@ -23,20 +30,29 @@ async function getDialogs(params) {
     return dialogRepository.findDialogs({active: false})
 }
 
-
+/**
+ * @param {{id: String, countMessages: Number}} params
+ * @returns {Promise<DialogModel>}
+ */
 async function getDialog(params) {
     return dialogRepository.findDialogById(params.id, params.countMessages)
 }
 
+
+/**
+ * @param {{id: String, status: String}} params
+ * @returns {Promise<DialogModel>}
+ */
 async function changeStatusDialog(params){
-   if (params.status === 'false'){
-       params.status = false
-   } else {
-       params.status = true
-   }
-    return dialogRepository.changeStatusDialog(params.id, params.status)
+    const active = params.status !== 'false'
+
+    return dialogRepository.changeStatusDialog(params.id, active)
 }
 
+/**
+ * @param {{id: String, text: String, authorId: String}} params
+ * @returns {Promise<DialogModel>}
+ */
 async function addMessage(params) {
     return dialogRepository.addNewMessage(params.id, params.text, params.authorId)
 }
