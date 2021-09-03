@@ -1,6 +1,6 @@
 const dialogRepository = require('./repository')
 const logger = require('../../utils/winston')
-// const {EntityExists, Forbidden} = require('utils/error')
+
 
 /**
  * @param {DialogModel[]} dialogs

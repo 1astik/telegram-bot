@@ -24,7 +24,7 @@ const addNewMessage = (id, text, author) => Dialog
     .findByIdAndUpdate(ObjectId(id), {$push: {messages: {
                 authorId : author,
                 text,
-                createdAt : Date.now()
+                createdAt : Math.round(new Date().getTime()/1000.0)
             }}})
 
 

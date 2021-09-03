@@ -1,4 +1,4 @@
-const timestamp = Date.now()
+const timestamp = Math.round(new Date().getTime()/1000.0)
 
 module.exports = [
     {
