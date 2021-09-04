@@ -1,5 +1,6 @@
-const config = require('../../config')
+process.env.NTBA_FIX_319 = 1
 const TelegramApi = require('node-telegram-bot-api')
+const config = require('../../config')
 const dialogService = require('./service')
 const moment = require('moment')
 const logger = require('../../utils/winston')
@@ -54,7 +55,7 @@ const start = async () => {
     bot.on('callback_query', async msg => {
         const chatId = msg.message.chat.id
         try {
-            const data = JSON.parse(msg.data)
+            const data = await JSON.parse(msg.data)
 
             if (msg.message.text === 'Меню') {
                 return onMenu(data.info, chatId)
@@ -97,7 +98,9 @@ async function onMenu(data, chatId) {
 
         JSON.stringify(dialogsButton.reply_markup)
 
-        return bot.sendMessage(chatId, 'Диалоги', dialogsButton)
+        const textButton = data === 'active' ? 'Диалоги' : 'Архив'
+
+        return bot.sendMessage(chatId, textButton, dialogsButton)
     } catch (e) {
         logger.error(`Error in BOT(onMenu): ${e.message}`)
 
