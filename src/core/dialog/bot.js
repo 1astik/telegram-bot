@@ -60,7 +60,7 @@ const start = async () => {
             if (msg.message.text === 'Меню') {
                 return onMenu(data.info, chatId)
             }
-            if (msg.message.text === 'Диалоги') {
+            if (msg.message.text === 'Диалоги' || msg.message.text ===  'Архив' ) {
                 return onDialog(data.info, chatId)
             }
             if (msg.message.text === 'Опции' && data.countMessages) {
