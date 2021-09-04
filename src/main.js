@@ -11,6 +11,14 @@ const bot = require('../src/core/dialog/bot')
 
     const server = express()
 
+    const router = express.Router()
+
+    router.get('/', (req, res) => {
+        res.send('ok')
+    })
+
+    server.use(router)
+
     server.listen(config.server.HTTP.PORT, () => logger.info(`Http server has been started. Port: ${config.server.HTTP.PORT}`))
 
     await bot.start()
